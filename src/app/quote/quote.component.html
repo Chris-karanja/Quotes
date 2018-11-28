@@ -1,14 +1,21 @@
 <h1>User Quotes</h1>
+
 <hr>
-<div *ngFor='let quote of userQuotes'>
+
+<div *ngFor='let quote of userQuotes, let i = index'>
   <h2>"{{quote.message}}"</h2>
   <span>
     <h4>{{quote.author}}</h4>
   </span>
+  <button (click)='toogleDetails(i)'>See More</button>
+
   <span>{{quote.upVote}} <button>Upvote</button></span><span>{{quote.downVote}} <button>Downvote</button></span>
 
   <br><br>
 
   <div>{{quote.dateAdded}}</div>
-  <hr>
+
+<app-quote-details *ngIf="quote.showDetail"></app-quote-details>
+
+
 </div>
