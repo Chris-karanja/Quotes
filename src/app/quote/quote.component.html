@@ -9,13 +9,12 @@
   </span>
   <button (click)='toogleDetails(i)'>See More</button>
 
-  <span>{{quote.upVote}} <button>Upvote</button></span><span>{{quote.downVote}} <button>Downvote</button></span>
-
   <br><br>
 
   <div>{{quote.dateAdded}}</div>
 
-<app-quote-details *ngIf="quote.showDetail"></app-quote-details>
+<app-quote-details *ngIf="quote.showDetail" [quote]='quote' (isDeleted)='quoteDelete($event,i)'></app-quote-details>
+
 
 
 </div>
